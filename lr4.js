@@ -20,3 +20,7 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
 setInterval(updateClock, 1000);
 
 updateClock();
+
+document.getElementById('toggle').addEventListener('change', function() {
+    document.body.classList.toggle('dark-mode');
+});

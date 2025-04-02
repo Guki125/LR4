@@ -1,10 +1,16 @@
+/* styles.css */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #f0f0f0;
     padding: 20px;
+    transition: background 0.3s, color 0.3s;
+    color: #000;
 }
-
+body.dark-mode {
+    background: #222;
+    color: #fff;
+}
 .container {
     background-color: #fff;
     padding: 20px;
@@ -12,22 +18,22 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;
     margin: 0 auto;
+    transition: background 0.3s;
 }
-
+body.dark-mode .container {
+    background-color: #333;
+}
 h1 {
     font-size: 2em;
 }
-
 #clock {
     font-size: 2em;
     margin: 20px 0;
     font-weight: bold;
 }
-
 form {
     margin-top: 20px;
 }
-
 input {
     padding: 10px;
     margin: 10px 0;
@@ -35,7 +41,6 @@ input {
     border-radius: 5px;
     border: 1px solid #ccc;
 }
-
 button {
     padding: 10px 20px;
     background-color: #4CAF50;
@@ -44,7 +49,53 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
-
 button:hover {
     background-color: #45a049;
+}
+.theme-toggle {
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+.toggle-input {
+    display: none;
+}
+.toggle-label {
+    cursor: pointer;
+    width: 50px;
+    height: 25px;
+    background: #ccc;
+    border-radius: 15px;
+    display: flex;
+    position: relative;
+    transition: background 0.3s;
+}
+.toggle-label::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    transition: 0.3s;
+}
+.toggle-input:checked + .toggle-label::before {
+    left: 25px;
+}
+.toggle-input:checked + .toggle-label {
+    background: #555;
+}
+.sun, .moon {
+    font-size: 18px;
+}
+.sun {
+    order: -1;
+}
+.moon {
+    order: 1;
 }
